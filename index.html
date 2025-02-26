@@ -13,7 +13,6 @@
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/MarkerCluster.css">
         <link rel="stylesheet" href="css/MarkerCluster.Default.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
@@ -44,7 +43,6 @@
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="js/leaflet.markercluster.js"></script>
-        <script src="js/leaflet-search.js"></script>
         <script src="data/communedeOuagadougou_1.js"></script>
         <script src="data/Arrondissement_2.js"></script>
         <script src="data/Arrondissementdtude_3.js"></script>
@@ -62,17 +60,6 @@
         var highlightLayer;
         function highlightFeature(e) {
             highlightLayer = e.target;
-
-            if (e.target.feature.geometry.type === 'LineString' || e.target.feature.geometry.type === 'MultiLineString') {
-              highlightLayer.setStyle({
-                color: '#ffff00',
-              });
-            } else {
-              highlightLayer.setStyle({
-                fillColor: '#ffff00',
-                fillOpacity: 1
-              });
-            }
             highlightLayer.openPopup();
         }
         var map = L.map('map', {
@@ -167,11 +154,6 @@
         function pop_communedeOuagadougou_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -216,11 +198,6 @@
         function pop_Arrondissement_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -276,11 +253,6 @@
         function pop_Arrondissementdtude_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -336,11 +308,6 @@
         function pop_Siteimportant_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -396,11 +363,6 @@
         function pop_BoulevarddesTansoba_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -454,11 +416,6 @@
         function pop_Voieexistante_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -512,11 +469,6 @@
         function pop_Voieneutralise_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -570,11 +522,6 @@
         function pop_Boutiqueferm_8(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -640,20 +587,11 @@
                 return L.circleMarker(latlng, style_Boutiqueferm_8_0(feature));
             },
         });
-        var cluster_Boutiqueferm_8 = new L.MarkerClusterGroup({showCoverageOnHover: false,
-            spiderfyDistanceMultiplier: 2});
-        cluster_Boutiqueferm_8.addLayer(layer_Boutiqueferm_8);
-
         bounds_group.addLayer(layer_Boutiqueferm_8);
-        cluster_Boutiqueferm_8.addTo(map);
+        map.addLayer(layer_Boutiqueferm_8);
         function pop_Garageferm_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -724,11 +662,6 @@
         function pop_Maguisferm_10(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -799,11 +732,6 @@
         function pop_Pontneutralis_11(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -870,11 +798,6 @@
         function pop_Restaurantferm_12(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -945,11 +868,6 @@
         function pop_Terraininocup_13(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1033,7 +951,7 @@
             {label: '<img src="legend/Pontneutralis_11.png" /> Pont neutralisé', layer: layer_Pontneutralis_11},
             {label: '<img src="legend/Maguisferm_10.png" /> Maguis fermé', layer: cluster_Maguisferm_10},
             {label: '<img src="legend/Garageferm_9.png" /> Garage fermé', layer: cluster_Garageferm_9},
-            {label: '<img src="legend/Boutiqueferm_8.png" /> Boutique fermé', layer: cluster_Boutiqueferm_8},
+            {label: '<img src="legend/Boutiqueferm_8.png" /> Boutique fermé', layer: layer_Boutiqueferm_8},
             {label: '<img src="legend/Voieneutralise_7.png" /> Voie neutralisée', layer: layer_Voieneutralise_7},
             {label: '<img src="legend/Voieexistante_6.png" /> Voie existante', layer: layer_Voieexistante_6},
             {label: '<img src="legend/BoulevarddesTansoba_5.png" /> Boulevard des Tansoba', layer: layer_BoulevarddesTansoba_5},
@@ -1066,13 +984,6 @@
               addLabel(layer, i);
               i++;
         });
-        map.addControl(new L.Control.Search({
-            layer: layer_Boutiqueferm_8,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'name'}));
-        document.getElementsByClassName('search-button')[0].className +=
-         ' fa fa-binoculars';
         resetLabels([layer_Siteimportant_4]);
         map.on("zoomend", function(){
             resetLabels([layer_Siteimportant_4]);
